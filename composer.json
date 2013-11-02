@@ -1,0 +1,29 @@
+{
+    "description" : "Seagull Framework Default module",
+    "name" : "seagullframework/module-default",
+    "keywords" : [
+        "framework",
+        "php"
+    ],
+    "homepage" : "http://seagullproject.org/",
+    "license" : "MIT",
+    "authors" : [
+        {
+            "name" : "Demian Turner",
+            "email" : "demian@phpkitchen.com"
+        },
+        {
+            "name" : "Seagull Community",
+            "homepage" : "http://trac.seagullproject.org/wiki/Community"
+        }
+    ],
+    "target-dir": "modules/default", 
+    "require" : {
+        "php" : ">=5.2.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
