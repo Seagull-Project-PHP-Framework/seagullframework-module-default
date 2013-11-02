@@ -26,6 +26,6 @@
         }
     },
     "include-path" : [
-            "./vendor/seagullframework/module-default/src"
+            "./src"
     ]
 }
