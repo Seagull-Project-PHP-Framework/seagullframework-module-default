@@ -39,11 +39,6 @@
 // +---------------------------------------------------------------------------+
 // $Id: ModuleMgr.php,v 1.37 2005/06/22 00:32:36 demian Exp $
 
-require_once 'DB/DataObject.php';
-require_once 'System.php';
-require_once SGL_CORE_DIR . '/Task/Install.php';
-require_once SGL_CORE_DIR . '/Sql.php';
-require_once SGL_CORE_DIR. '/Install/Common.php';
 require_once SGL_MOD_DIR . '/default/classes/DefaultDAO.php';
 
 define('SGL_ICONS_PER_ROW', 3);
@@ -143,7 +138,7 @@ class ModuleMgr extends SGL_Manager
                 $aErrors['name'] = 'no module data supplied';
             }
         }
-        //  if errors have occured -
+        //  if errors have occurred -
 #commented out because multi-module validation not solved
 //        if (isset($aErrors) && count($aErrors)) {
 //            SGL::raiseMsg('Please fill in the indicated fields');

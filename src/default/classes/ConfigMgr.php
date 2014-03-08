@@ -38,9 +38,6 @@
 // +---------------------------------------------------------------------------+
 // $Id: ConfigMgr.php,v 1.32 2005/06/23 18:21:25 demian Exp $
 
-require_once 'Config.php';
-require_once 'Validate.php';
-
 /**
  * To manage administering global config file.
  *
@@ -112,7 +109,7 @@ class ConfigMgr extends SGL_Manager
         $this->aNavDrivers   = SGL_Util::getAllClassesFromFolder($navDir, '.*Driver');
         $this->aNavRenderers = SGL_Util::getAllClassesFromFolder($navDir, '.*Renderer');
         $this->aSessHandlers = array('file' => 'file', 'database' => 'database');
-        $stratDir = SGL_CORE_DIR . '/UrlParser';
+        $stratDir = SGL_VENDOR_DIR . '/seagullframework/lib-sgl/src/SGL/UrlParser';
         $aUrlHandlers = SGL_Util::getAllClassesFromFolder($stratDir);
         foreach ($aUrlHandlers as $k => $v) {
             require_once $stratDir . '/' . $k . '.php';
@@ -132,7 +129,11 @@ class ConfigMgr extends SGL_Manager
         );
         $this->aTranslationContainers = array('file' => 'file', 'db' => 'database');
 
-		$this->aWysiwygEditor = array('fckeditor' => 'fckeditor', 'xinha' => 'xinha', 'htmlarea' => 'htmlarea', 'tinyfck' => 'tinyfck');
+		$this->aWysiwygEditor = array(
+            'fckeditor' => 'fckeditor',
+            'xinha' => 'xinha',
+            'htmlarea' => 'htmlarea',
+            'tinyfck' => 'tinyfck');
     }
 
     function validate($req, &$input)
@@ -331,7 +332,6 @@ class ConfigMgr extends SGL_Manager
                 $locator =  SGL_ServiceLocator::singleton();
                 $locator->remove('DB');
                 //  rebuild sequences
-                require_once SGL_CORE_DIR . '/Task/Install.php';
                 $res = SGL_Task_SyncSequences::run();
             }
 
